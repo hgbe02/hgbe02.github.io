@@ -14,9 +14,9 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: hgbe02's blog # the main title
+title: 北海听雨 # the main title
 
-tagline: hgbe02的成长之路 # it will display as the sub-title
+tagline: hgbe02's blog # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   网络安全兴趣爱好者，一起进步呀！
