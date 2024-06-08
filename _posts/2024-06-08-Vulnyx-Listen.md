@@ -2,7 +2,8 @@
 title: Vulnyx-Listen
 date: 2024-06-08
 categories: [Training platform,Vulnyx]
-tags: [Vulnyx]    
+tags: [Web,Vulnyx]
+permalink: "/Vulnyx/Listen.html"
 ---
 
 #  (°ー°〃)Listen
@@ -128,7 +129,7 @@ Finished
 
 <img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202405281748543.png" alt="image-20240528165914359" style="zoom:50%;" />
 
-```apl
+```shell
 -----BEGIN RSA PRIVATE KEY-----
 Proc-Type: 4,ENCRYPTED
 DEK-Info: DES-EDE3-CBC,F119F21F757AA02E
@@ -210,7 +211,7 @@ Session completed.
 
 发现第三个是我们想要的，可以得到用户进行连接！但是这个是`python2`的，尝试换一个`python3`的:
 
-```bash
+```python
 #!/usr/bin/env python3
 
 import argparse, logging, paramiko, socket, sys, os
