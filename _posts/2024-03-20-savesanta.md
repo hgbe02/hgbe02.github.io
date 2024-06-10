@@ -50,13 +50,13 @@ dirb http://10.0.2.6
 + http://10.0.2.6/index.html (CODE:200|SIZE:1012)                                                                     
 ==> DIRECTORY: http://10.0.2.6/javascript/                                                                            
 + http://10.0.2.6/robots.txt (CODE:200|SIZE:70)                                                                       
-+ http://10.0.2.6/server-status (CODE:403|SIZE:199)                                                                   
-                                                                                                                      
++ http://10.0.2.6/server-status (CODE:403|SIZE:199)
+
 ---- Entering directory: http://10.0.2.6/administration/ ----
-                                                                                                                      
+
 ---- Entering directory: http://10.0.2.6/javascript/ ----
 ==> DIRECTORY: http://10.0.2.6/javascript/jquery/                                                                     
-                                                                                                                      
+
 ---- Entering directory: http://10.0.2.6/javascript/jquery/ ----
 + http://10.0.2.6/javascript/jquery/jquery (CODE:200|SIZE:289782)                                                   
 ```
@@ -305,8 +305,8 @@ Z:\root>type root.txt
 
 ```
 
-同时还感谢[mikannse]()师傅提的意见:
+同时还感谢 mikannse 师傅提的意见:
 
 <img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202403201456822.png" alt="image-20240320145547626" style="zoom:50%;" />
 
-(这样的话不就白模糊了。。。。。)
+(这样的话不就白打🐎了。。。。。)
