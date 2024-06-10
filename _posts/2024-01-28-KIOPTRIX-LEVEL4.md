@@ -6,7 +6,7 @@ tags: [Vulnhub,web]
 permalink: "/Vulnhub/Kioptrix-level4.html"
 ---
 
-# Vulnhub--KIOPTRIX LEVEL 4
+# KIOPTRIX LEVEL 4
 
 ![image-20240127185740686](https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202401281205884.png)
 

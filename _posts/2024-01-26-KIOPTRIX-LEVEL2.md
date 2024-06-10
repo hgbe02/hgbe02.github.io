@@ -7,7 +7,7 @@ tags: [Vulnhub,web]
 permalink: "/Vulnhub/Kioptrix-level2.html"
 ---
 
-# KIOPTRIX: LEVEL 2
+# KIOPTRIX:LEVEL2
 
 <img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202401261632087.png" alt="image-20240126104304145" style="zoom:50%;" />
 
