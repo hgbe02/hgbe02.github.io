@@ -1,6 +1,6 @@
 ---
-title: Vulnhub-KIOPTRIX: LEVEL 3  
-date: 2024-01-27 
+title: Vulnhub-KIOPTRIX:LEVEL3  
+date: 2024-01-27 20:00:00 +0800
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  
 permalink: "/Vulnhub/Kioptrix-level3.html"

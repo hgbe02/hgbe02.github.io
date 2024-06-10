@@ -1,6 +1,7 @@
 ---
-title: Vulnhub-INFOSEC PREP: OSCP
-date: 2024-01-24  
+title: INFOSEC PREP:OSCP
+author: hgbe02
+date: 2024-06-10
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  
 permalink: "/Vulnhub/Infosec-prep-oscp.html"

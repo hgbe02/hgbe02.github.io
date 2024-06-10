@@ -1,6 +1,7 @@
 ---
-title: Vulnhub-KIOPTRIX: LEVEL 1  
-date: 2024-01-25  
+title: KIOPTRIX:LEVEL1
+author: hgbe02
+date: 2024-01-25 20:00:00 +0800
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  
 permalink: "/Vulnhub/Kioptrix-level1.html"
