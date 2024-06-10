@@ -1,7 +1,7 @@
 ---
 title: DIGITALWORLD.LOCAL:MERCY V2
 author: hgbe02
-date: 2024-06-09 20:00:00 +0800
+date: 2024-03-25 20:00:00 +0800
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  
 permalink: "/Vulnhub/MercyV2.html"

@@ -1,6 +1,6 @@
 ---
 title: Vulnhub-Jangow  
-date: 2024-06-10 
+date: 2024-01-29 
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  
 permalink: "/Vulnhub/Jangow.html"

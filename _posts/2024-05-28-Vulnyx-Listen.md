@@ -1,6 +1,6 @@
 ---
 title: Vulnyx-Listen
-date: 2024-06-08
+date: 2024-05-28
 categories: [Training platform,Vulnyx]
 tags: [Web,Vulnyx]
 permalink: "/Vulnyx/Listen.html"
