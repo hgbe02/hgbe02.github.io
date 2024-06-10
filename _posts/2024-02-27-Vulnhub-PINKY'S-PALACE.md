@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-PINKY'S PALACE:V2  
+title: PINKY'S PALACE:V2  
 date: 2024-02-27  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

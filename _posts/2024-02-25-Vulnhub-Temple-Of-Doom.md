@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-TEMPLE OF DOOM:1
+title: TEMPLE OF DOOM:1
 date: 2024-02-25  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

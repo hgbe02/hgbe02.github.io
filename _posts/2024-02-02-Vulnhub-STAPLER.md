@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-STAPLER:1
+title: STAPLER:1
 date: 2024-02-02  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-Jangow  
+title: Jangow  
 date: 2024-01-29 
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

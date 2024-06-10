@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-SOLIDSTATE:1
+title: SOLIDSTATE:1
 date: 2024-03-17  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

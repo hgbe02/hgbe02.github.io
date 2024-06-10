@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-WINTERMUTE1  
+title: WINTERMUTE1  
 date: 2024-03-14 
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

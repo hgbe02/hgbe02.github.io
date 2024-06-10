@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-PWNOS2.0 
+title: PWNOS2.0 
 date: 2024-02-20 
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

@@ -1,7 +1,7 @@
 ---
 title: ESCALATE LINUX:1
 author: hgbe02
-date: 2024-06-9
+date: 2024-03-19
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  
 permalink: "/Vulnhub/Escalate-linux.html"

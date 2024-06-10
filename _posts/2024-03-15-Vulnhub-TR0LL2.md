@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-TR0LL:2
+title: TR0LL:2
 date: 2024-03-15  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,pwn]  

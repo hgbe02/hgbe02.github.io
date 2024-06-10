@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-MR-ROBOT:1
+title: MR-ROBOT:1
 date: 2024-02-22 
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

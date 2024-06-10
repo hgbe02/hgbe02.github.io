@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-SKYTOWER:1
+title: SKYTOWER:1
 date: 2024-02-21  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

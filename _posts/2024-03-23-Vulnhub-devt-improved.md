@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-devt-improved 
+title: devt-improved 
 date: 2024-03-23  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

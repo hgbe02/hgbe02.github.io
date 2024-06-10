@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-TR0LL:1 
+title: TR0LL:1 
 date: 2024-03-14  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

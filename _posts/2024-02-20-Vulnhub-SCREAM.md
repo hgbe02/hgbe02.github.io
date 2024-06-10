@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-SCREAM
+title: SCREAM
 date: 2024-02-20  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

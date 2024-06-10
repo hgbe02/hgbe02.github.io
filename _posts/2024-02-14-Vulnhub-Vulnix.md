@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-VULNIX(失败)
+title: VULNIX(失败)
 date: 2024-02-14  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

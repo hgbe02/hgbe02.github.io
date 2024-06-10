@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-zico2  
+title: zico2  
 date: 2024-03-01
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

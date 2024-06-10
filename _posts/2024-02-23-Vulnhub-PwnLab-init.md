@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-PWNLAB:INIT
+title: PWNLAB:INIT
 date: 2024-02-23  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,pwn]  

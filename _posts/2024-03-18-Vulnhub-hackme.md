@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-Hackme 
+title: Hackme 
 date: 2024-03-18  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

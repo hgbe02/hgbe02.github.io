@@ -1,5 +1,5 @@
 ---
-title: Vulnyx-Listen
+title: Listen
 date: 2024-05-28
 categories: [Training platform,Vulnyx]
 tags: [Web,Vulnyx]

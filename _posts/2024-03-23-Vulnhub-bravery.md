@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-bravery
+title: bravery
 date: 2024-03-23  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

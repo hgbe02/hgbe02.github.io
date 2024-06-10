@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-WebDeveloper
+title: WebDeveloper
 date: 2024-03-17  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  

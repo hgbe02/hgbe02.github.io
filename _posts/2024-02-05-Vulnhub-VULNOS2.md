@@ -1,5 +1,5 @@
 ---
-title: Vulnhub-VULNOS:2  
+title: VULNOS:2  
 date: 2024-02-05  
 categories: [Training platform,Vulnhub]  
 tags: [Vulnhub,web]  
